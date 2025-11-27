@@ -14,6 +14,10 @@
 
 <script setup>
 import {useAppStore} from "@/stores/AppSetting";
+import SideBar from "./components/SideBar/index.vue";
+import NavBar from "./components/NavBar/index.vue";
+import TagView from "./components/TagView/index.vue";
+import AppMain from "./components/AppMain/index.vue";
 const appStore = useAppStore();
 const layoutStyle = computed(() => {
   if (['top'].includes(appStore.layoutMode)){
