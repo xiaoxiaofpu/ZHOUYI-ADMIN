@@ -20,8 +20,8 @@ export default defineConfig({
         Components({
             resolvers: [ElementPlusResolver(
                 {
-                    // 自动使用预处理样式
-                    importStyle: "sass",
+                    // 使用已编译的 CSS，避免 Sass 模块函数不兼容问题
+                    importStyle: "css",
                 }
             )],
             // 指定自定义组件位置(默认:src/components)
@@ -57,7 +57,7 @@ export default defineConfig({
         preprocessorOptions: {
             scss: {
                 javascriptEnabled: true,
-                additionalData: `@use "@/assets/styles/main.scss" as *;`,
+                additionalData: `@use "sass:math"; @use "sass:color"; @use "@/assets/styles/main.scss" as *;`,
             },
         },
     },
