@@ -13,6 +13,9 @@ const router = createRouter({
     routes,
     // 刷新时，滚动条位置还原
     scrollBehavior: () => ({ left: 0, top: 0 }),
+    // 路由懒加载优化
+    strict: true,
+    sensitive: true,
 });
 
 
@@ -37,6 +40,12 @@ function hasPermission(perms, route) {
 router.beforeEach(async (to, from, next) => {
     const searchStore = useSearchStore()
     searchStore.showSearchPanel(false)
+    
+    // 优化：如果是同一页面跳转，直接返回
+    if (to.path === from.path) {
+        return next();
+    }
+    
     NProgress.start();
     // 检查是否需要登录
     if (to.meta.requiresAuth) {
