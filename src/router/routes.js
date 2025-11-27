@@ -130,6 +130,20 @@ const constantRoutes = [
                 ]
             },
             {
+                path: "/comprehensive-example",
+                component: () => import("@/views/comprehensive-example/index.vue"),
+                name: "comprehensive-example",
+                meta: {
+                    title: "综合示例",
+                    icon: "Compass",
+                    requiresAuth: true,
+                    cache: true,
+                    perms: [
+                        "/comprehensive-example"
+                    ],
+                },
+            },
+            {
                 path: "/sys",
                 name: "sys",
                 redirect: "/users",
@@ -260,33 +274,7 @@ const constantRoutes = [
             //     },
             //     component: () => import("@/views/sys/frame/index.vue"),
             // },
-            {
-                path: "https://gitee.com/Z568_568/ZHOUYI-ADMIN",
-                name: 'link',
-                meta: {
-                    icon: "Link",
-                    title: '文档教程（准备中）',
-                    isLink: true
-                },
-            },
-            {
-                path: "https://gitee.com/Z568_568",
-                name: 'link',
-                meta: {
-                    icon: "Link",
-                    title: '关于作者',
-                    isLink: true
-                },
-            },
-            {
-                path: "https://element-plus.org/zh-CN/component/icon.html",
-                name: 'link',
-                meta: {
-                    icon: "Link",
-                    title: 'Element-Plus',
-                    isLink: true
-                },
-            },
+
             {
                 path: "/401",
                 name: '401',
